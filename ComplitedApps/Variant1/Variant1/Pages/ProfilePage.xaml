@@ -1,0 +1,156 @@
+﻿<Page x:Class="Variant1.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="ProfilePage" Background="White">
+
+	<Border Style="{StaticResource BaseBorder}" Margin="20">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Мой профиль" Name="tb" FontSize="30" Grid.ColumnSpan="4"/>
+
+			<!-- Блок ФИО -->
+			
+			<TextBlock Text="ФИО" Grid.Row="1"/>
+			<StackPanel Grid.Row="1" Grid.Column="1">
+				<TextBox Name="TBFIO" Text="{Binding FIO}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<!-- Блок пола -->
+			
+			<TextBlock Text="Пол" Grid.Row="2"/>
+			<TextBlock Text="{Binding Genders.Gender}"
+					   Name="TBGender"
+					   HorizontalAlignment="Left"
+					   Grid.Row="2" Grid.Column="1"
+					   Margin="20"/>
+			<Border Style="{StaticResource BaseButton}"
+					MouseDown="SwitchGender"
+					Grid.Row="2" Grid.Column="1"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center">
+				<TextBlock Text="Сменить"/>
+			</Border>
+
+			<!-- Блок даты рождения -->
+			
+			<TextBlock Text="Дата рождения" Grid.Row="3"/>
+			<DatePicker Name="TBDateBirth" Text="{Binding DateBirth}"
+						Grid.Row="3" Grid.Column="1"
+						FontSize="18" Foreground="#00416a"
+						VerticalAlignment="Center"/>
+			
+			<TextBlock Text="Идентификатор" Grid.Row="4"/>
+			<StackPanel Grid.Row="4" Grid.Column="1">
+				<TextBox Name="TBID" Text="{Binding ID}" IsReadOnly="True"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<!-- Блок страны -->
+			
+			<TextBlock Text="Страна" Grid.Row="5"/>
+			<ComboBox Name="CBCountry"
+				  SelectedItem="{Binding Countries}"
+				  Grid.Row="5" Grid.Column="1">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="{Binding OnRussion}" Margin="0"/>
+							<TextBlock Text="{Binding Code, StringFormat={} ({0})}" Margin="0"/>
+						</StackPanel>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+
+			<!-- Блок телефона -->
+
+			<TextBlock Text="Телефон" Grid.Row="6"/>
+			<StackPanel Grid.Row="6" Grid.Column="1">
+				<TextBox Name="TBPhone" Text="{Binding PhoneNumber}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<!-- Блок почты -->
+			
+			<TextBlock Text="Email" Grid.Row="7"/>
+			<StackPanel Grid.Row="7" Grid.Column="1">
+				<TextBox Name="TBEmail" Text="{Binding Email}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<!-- Фото -->
+			
+			<Image Name="Photo" Source="{Binding Photo}"
+				   Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+
+			<!-- Кнопки для изменения фото -->
+			
+			<Border Style="{StaticResource BaseButton}"
+					Grid.Row="4" Grid.Column="2"
+					Grid.ColumnSpan="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					MouseDown="ChangePhoto">
+				<TextBlock Text="Сменить фото"/>
+			</Border>
+
+			<!-- Блок смены пароля -->
+			
+			<TextBlock Text="Смена пароля" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+			<TextBlock Text="Новый пароль" Grid.Row="6" Grid.Column="2"/>
+			<StackPanel Grid.Row="6" Grid.Column="3">
+				<TextBox Name="TBNewPassword"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<TextBlock Text="Повторение пароля" Grid.Row="7" Grid.Column="2"/>
+			<StackPanel Grid.Row="7" Grid.Column="3">
+				<TextBox Name="TBRepeatPassword"/>
+				<Rectangle/>
+			</StackPanel>
+			
+			<Border Style="{StaticResource BaseButton}"
+					Grid.Row="8" Grid.Column="2"
+					Grid.ColumnSpan="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					MouseDown="ChangePassword">
+				<TextBlock Text="Сменить пароль"/>
+			</Border>
+
+			<!-- Кнопка сохранения -->
+
+			<Border Style="{StaticResource BaseButton}"
+					Grid.Row="8"
+					Grid.ColumnSpan="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					MouseDown="Save">
+				<TextBlock Text="Сохранить изменения"/>
+			</Border>
+		</Grid>
+	</Border>
+</Page>

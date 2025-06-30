@@ -1,0 +1,111 @@
+﻿<Page x:Class="Variant1.Pages.EventPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="EventPage" Background="White">
+	<Border Style="{StaticResource BaseBorder}" Margin="20">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="2*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="2*"/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Name="TBName"
+					   Text="Новое мероприятие"
+					   TextWrapping="Wrap"
+					   FontSize="30" Grid.ColumnSpan="4"/>
+
+			<TextBlock Text="Наименование" Grid.Row="1"/>
+			<StackPanel Grid.Row="1" Grid.Column="1">
+				<TextBox Name="IName" Text="{Binding Event}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<TextBlock Text="Дата" Grid.Row="2"/>
+			<DatePicker SelectedDate="{Binding Date}"
+						FontSize="18"
+						VerticalAlignment="Center"
+						Grid.Row="2" Grid.Column="1"/>
+
+			<TextBlock Text="Кол-во дней" Grid.Row="3"/>
+			<StackPanel Grid.Row="3" Grid.Column="1">
+				<TextBox Name="IDays" Text="{Binding Days}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<TextBlock Text="Направление" Grid.Row="4"/>
+			<ComboBox Name="CBDirections"
+					  SelectedItem="{Binding Directions}"
+					  DisplayMemberPath="Direction"
+					  Grid.Row="4" Grid.Column="1"/>
+
+			<TextBlock Text="Город" Grid.Row="5"/>
+			<ComboBox Name="CBCities"
+					  SelectedItem="{Binding Cities}"
+					  DisplayMemberPath="City"
+					  Grid.Row="5" Grid.Column="1"/>
+
+			<Image Source="{Binding Photo}"
+				   Name="Photo"
+				   Grid.Column="2" Grid.Row="1"
+				   Grid.RowSpan="3"/>
+			<Border Style="{StaticResource BaseButton}"
+					Grid.Column="2" Grid.Row="4"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					MouseDown="ChangePhoto">
+				<TextBlock Text="Добавить фото"/>
+			</Border>
+
+			<StackPanel Orientation="Horizontal"
+						HorizontalAlignment="Center"
+						Grid.ColumnSpan="4" Grid.Row="6"
+						Name="SPEventActivity"
+						Visibility="Hidden">
+				<Border Style="{StaticResource BaseButton}"
+						MouseDown="ToActivities">
+					<TextBlock Text="Настроить активности"/>
+				</Border>
+				<Border Style="{StaticResource BaseButton}"
+						MouseDown="ToJury">
+					<TextBlock Text="Настроить жюри"/>
+				</Border>
+				<Border Style="{StaticResource BaseButton}"
+					MouseDown="ToKanban">
+					<TextBlock Text="Доска"/>
+				</Border>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal"
+						HorizontalAlignment="Center"
+						Grid.ColumnSpan="4" Grid.Row="7">
+				<Border Style="{StaticResource BaseButton}"
+					MouseDown="Save">
+					<TextBlock Text="Сохранить"
+							   Width="150"/>
+				</Border>
+				<Border Style="{StaticResource BaseButton}"
+					MouseDown="Delete">
+					<TextBlock Text="Отменить"
+							   Width="150"
+							   Name="btnCancel"/>
+				</Border>
+			</StackPanel>
+		</Grid>
+    </Border>
+</Page>

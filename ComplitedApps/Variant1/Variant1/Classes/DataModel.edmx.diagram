@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d6dccc6ac24e4a3e9f3bbdb2ad397ca2" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_Demo2022Model.Accounts" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Activities" Width="1.5" PointX="10.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Cities" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Countries" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Directions" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Events" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Genders" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Roles" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Statements" Width="1.5" PointX="12.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.TimeForActivity" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Demo2022Model.Users" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Accounts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Activities_TimeForActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Activities_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Statements_Activities" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Events_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Users_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Events_Directions" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Users_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.Events_Activities" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.Users_Directions" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Demo2022Model.Users_Events" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

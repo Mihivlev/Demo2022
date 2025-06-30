@@ -1,0 +1,71 @@
+﻿<Page x:Class="Variant1.Pages.ListJuryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="ListJuryPage" Background="White"
+	  IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Border Style="{StaticResource BaseBorder}">
+			<Grid>
+				<StackPanel Orientation="Horizontal">
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="AddUser">
+						<TextBlock Text=" + " FontSize="25" HorizontalAlignment="Center"/>
+					</Border>
+					<TextBlock Text="Жюри / Модераторы"
+						   FontSize="20"
+						   HorizontalAlignment="Left"/>
+				</StackPanel>
+				
+				<StackPanel Orientation="Horizontal"
+							HorizontalAlignment="Right">
+					<TextBlock Text="ФИО"/>
+					<StackPanel>
+						<TextBox Name="SearchText" 
+								 Width="250"
+								 TextChanged="TextBox_TextChanged"/>
+						<Rectangle/>
+					</StackPanel>
+					<TextBlock Text="     Мероприятие"/>
+					<ComboBox Name="CBEvents" Width="250"
+							  SelectedIndex="0"
+							  DisplayMemberPath="Event"
+							  SelectionChanged="CBEvents_SelectionChanged"/>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<ListView Name="LVJury"
+				  Grid.Row="1"
+				  Margin="20 0 20 0"
+				  d:ItemsSource="{d:SampleData ItemCount=5}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border Style="{StaticResource BaseBorder}" MouseDown="ToUser">
+						<Grid>
+							<StackPanel Orientation="Horizontal">
+								<Image Source="{Binding Photo}" Height="70"/>
+								<TextBlock Text="{Binding FIO}"/>
+							</StackPanel>
+
+							<TextBlock Text="{Binding Email}"/>
+							
+							<TextBlock Text="{Binding Roles.Role}"
+									   HorizontalAlignment="Right"/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+    </Grid>
+</Page>

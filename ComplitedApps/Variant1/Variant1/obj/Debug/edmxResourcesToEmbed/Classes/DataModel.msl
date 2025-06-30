@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB_Demo2022ModelContainer" CdmEntityContainer="DB_Demo2022Entities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Activities">
+        <MappingFragment StoreEntitySet="Activities">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="ModeratorID" ColumnName="ModeratorID" />
+          <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="OnRussion" ColumnName="OnRussion" />
+          <ScalarProperty Name="OnEnglish" ColumnName="OnEnglish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Directions">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Directions">
+        <MappingFragment StoreEntitySet="Directions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="DirectionID" ColumnName="DirectionID" />
+          <ScalarProperty Name="PhotoSource" ColumnName="PhotoSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Genders">
+        <MappingFragment StoreEntitySet="Genders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statements">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Statements">
+        <MappingFragment StoreEntitySet="Statements">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeForActivity">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.TimeForActivity">
+        <MappingFragment StoreEntitySet="TimeForActivity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_Demo2022Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="PhotoSource" ColumnName="PhotoSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Events_Activities" TypeName="DB_Demo2022Model.Events_Activities" StoreEntitySet="Events-Activities">
+      <EndProperty Name="Activities">
+        <ScalarProperty Name="ID" ColumnName="ActivityID" />
+      </EndProperty>
+      <EndProperty Name="Events">
+        <ScalarProperty Name="ID" ColumnName="EventID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Users_Directions" TypeName="DB_Demo2022Model.Users_Directions" StoreEntitySet="Users-Directions">
+      <EndProperty Name="Directions">
+        <ScalarProperty Name="ID" ColumnName="DirectionID" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="ID" ColumnName="UserID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Users_Events" TypeName="DB_Demo2022Model.Users_Events" StoreEntitySet="Users-Events">
+      <EndProperty Name="Events">
+        <ScalarProperty Name="ID" ColumnName="EventsID" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="ID" ColumnName="UserID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

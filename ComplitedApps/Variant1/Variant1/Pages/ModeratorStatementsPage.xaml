@@ -1,0 +1,72 @@
+﻿<Page x:Class="Variant1.Pages.ModeratorStatementsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="ModeratorStatementsPage" Background="White">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<Border Style="{StaticResource BaseBorder}">
+			<Grid>
+				<StackPanel Orientation="Horizontal">
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="AddStatement">
+						<TextBlock Text=" + " FontSize="25"/>
+					</Border>
+					<TextBlock Text="Заявки"
+							   FontSize="20"
+							   HorizontalAlignment="Left"/>
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal"
+							HorizontalAlignment="Right">
+					<TextBlock Text="Наименование"/>
+					<StackPanel>
+						<TextBox Name="SearchText"
+								 Width="250"
+								 TextChanged="TextBox_TextChanged"/>
+						<Rectangle/>
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<ListView Name="LVStatement"
+				  Grid.Row="1"
+				  Margin="20 0 20 0"
+				  d:ItemsSource="{d:SampleData ItemCount=5}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border Style="{StaticResource BaseBorder}" MouseDown="ToStatement">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="2*"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="auto"/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+
+							<TextBlock Text="{Binding Activities.Activity, StringFormat={}Заявка на {0}}"
+									   HorizontalAlignment="Left"/>
+
+							<TextBlock Text="{Binding Activities.TimeForActivity.Time, StringFormat={}Время начала: {0}}"
+									   Grid.Column="1"/>
+
+							<TextBlock/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</Page>

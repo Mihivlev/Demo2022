@@ -1,0 +1,58 @@
+﻿<Page x:Class="Variant1.Pages.EventActivities"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="EventActivities" Background="White">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Border Style="{StaticResource BaseBorder}">
+			<Grid>
+				<Border Style="{StaticResource BaseButton}"
+						HorizontalAlignment="Left"
+						MouseDown="GoBack">
+					<TextBlock Text="Назад"/>
+				</Border>
+
+				<TextBlock Text="{Binding Event}"/>
+			</Grid>
+		</Border>
+
+		<ListView Name="LVActivities" Grid.Row="1" Margin="30 0 30 0" d:ItemsSource="{d:SampleData ItemCount=5}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border Style="{StaticResource BaseBorder}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+								<ColumnDefinition/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<TextBlock Text="{Binding Activity}"/>
+
+							<TextBlock Text="{Binding Users.FIO, StringFormat={}Модератор: {0}}"
+									   HorizontalAlignment="Left"
+									   Grid.Column="1"/>
+
+							<Border Style="{StaticResource BaseButton}"
+									Grid.Column="2"
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center"
+									MouseDown="ChangeActivityStatus">
+								<TextBlock Text="{Binding Connect}" Width="150"/>
+							</Border>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</Page>

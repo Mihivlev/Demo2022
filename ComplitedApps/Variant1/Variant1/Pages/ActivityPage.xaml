@@ -1,0 +1,68 @@
+﻿<Page x:Class="Variant1.Pages.ActivityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+	  d:DesignHeight="787" d:DesignWidth="1366"
+      Title="ActivityPage"
+	  Background="White">
+
+	<Border Style="{StaticResource BaseBorder}"
+			Margin="20">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Активность" FontSize="25"
+					   Grid.ColumnSpan="2"/>
+
+			<!-- Блок наименования -->
+			<TextBlock Text="Наименование" Grid.Row="1"/>
+			<StackPanel Grid.Row="1" Grid.Column="1">
+				<TextBox Name="IName" Text="{Binding Activity}"/>
+				<Rectangle/>
+			</StackPanel>
+
+			<!-- Блок модератора -->
+			<TextBlock Text="Модератор" Grid.Row="2"/>
+			<ComboBox Name="CBModerators"
+					  SelectedItem="{Binding Users}"
+					  DisplayMemberPath="FIO"
+					  Grid.Row="2" Grid.Column="1"/>
+
+			<!-- Блок времени -->
+			<TextBlock Text="Время начала" Grid.Row="3"/>
+			<ComboBox Name="CBTimes"
+					  SelectedItem="{Binding TimeForActivity}"
+					  DisplayMemberPath="Time"
+					  Grid.Row="3" Grid.Column="1"/>
+
+			<!-- Блок кнопок -->
+			<StackPanel Orientation="Horizontal"
+						Grid.Row="4" Grid.ColumnSpan="2"
+						HorizontalAlignment="Center">
+				<Border Style="{StaticResource BaseButton}"
+						MouseDown="Save">
+					<TextBlock Text="Сохранить"
+							   Width="150"/>
+				</Border>
+				<Border Style="{StaticResource BaseButton}"
+						MouseDown="Delete">
+					<TextBlock Text="Удалить"
+							   Width="150"/>
+				</Border>
+			</StackPanel>
+		</Grid>
+	</Border>
+</Page>

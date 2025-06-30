@@ -1,0 +1,76 @@
+﻿<Page x:Class="Variant1.Pages.JuriPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Title="JuriPage" Background="White">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Border Style="{StaticResource BaseBorder}" Grid.ColumnSpan="2">
+			<Grid>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+					<Image Name="UserPhoto" Source="{Binding Photo}" Height="70" Margin="10"/>
+					<TextBlock Text="{Binding FIO}" Name="TBUserName" FontSize="25"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<Border Style="{StaticResource BaseButton}" MouseDown="Profile">
+						<TextBlock Text="Перейти в профиль"/>
+					</Border>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<Border Style="{StaticResource BaseBorder}" Grid.Row="1">
+			<Grid>
+				<StackPanel VerticalAlignment="Top">
+					<Image Source="/Resources/logo.png" Width="150"/>
+					<TextBlock Text="Жюри" FontSize="25"/>
+				</StackPanel>
+
+				<StackPanel>
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="Events">
+						<TextBlock Text="Мероприятия"/>
+					</Border>
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="Directions">
+						<TextBlock Text="Мои направления"/>
+					</Border>
+				</StackPanel>
+
+				<StackPanel VerticalAlignment="Bottom">
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="AccountExit">
+						<TextBlock Text="Выйти из аккаунта"/>
+					</Border>
+					<Border Style="{StaticResource BaseButton}"
+							MouseDown="CloseApp">
+						<TextBlock Text="Закрыть приложение"/>
+					</Border>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<Border Style="{StaticResource BaseBorder}" Grid.Row="1" Grid.Column="1"
+				HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20">
+			<StackPanel>
+				<TextBlock x:Name="HelloTime" Text="Доброй Ночи" FontSize="40"/>
+				<TextBlock x:Name="HelloName" FontSize="35"/>
+			</StackPanel>
+		</Border>
+
+		<Frame Name="UserFrame" Grid.Row="1" Grid.Column="1"/>
+	</Grid>
+</Page>

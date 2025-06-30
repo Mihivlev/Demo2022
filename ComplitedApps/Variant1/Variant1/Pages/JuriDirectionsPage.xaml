@@ -1,0 +1,53 @@
+﻿<Page x:Class="Variant1.Pages.JuriDirectionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Variant1.Pages"
+      mc:Ignorable="d" Background="White"
+      d:DesignHeight="787" d:DesignWidth="1366"
+      Title="JuriDirectionsPage">
+
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Border Style="{StaticResource BaseBorder}">
+			<Grid>
+				<Border Style="{StaticResource BaseButton}"
+						HorizontalAlignment="Left"
+						MouseDown="GoBack">
+					<TextBlock Text="Назад"/>
+				</Border>
+
+				<TextBlock Text="{Binding FIO}"/>
+			</Grid>
+		</Border>
+
+		<ListView Name="LVDirections" Grid.Row="1" Margin="30 0 30 0">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border Style="{StaticResource BaseBorder}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="2*"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<TextBlock Text="{Binding Direction}"/>
+
+							<Border Style="{StaticResource BaseButton}"
+									Grid.Column="1"
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center"
+									MouseDown="ChangeDirection">
+								<TextBlock Text="{Binding Connect}" Width="150"/>
+							</Border>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</Page>
